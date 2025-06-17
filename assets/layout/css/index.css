@@ -1,0 +1,714 @@
+/* =====================================================
+   SONIDOS DE LA CIUDAD - ENTREGABLE II
+   CSS Minimalista con Grid y Flexbox
+   ===================================================== */
+
+/* =====================================================
+   1. RESET Y CONFIGURACIÓN BÁSICA
+   ===================================================== */
+
+/* Selector universal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Selector de tipo */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================================================
+   2. PALETA DE COLORES MINIMALISTA
+   Inspirada en: https://color.adobe.com/es/create/color-wheel
+   ===================================================== */
+
+:root {
+  --primary-color: #2c3e50; /* Azul oscuro */
+  --secondary-color: #3498db; /* Azul claro */
+  --accent-color: #e74c3c; /* Rojo elegante */
+  --text-color: #34495e; /* Gris oscuro */
+  --light-gray: #f8f9fa; /* Gris muy claro */
+  --white: #ffffff;
+  --border-color: #dee2e6;
+}
+
+/* =====================================================
+   3. TIPOGRAFÍA
+   ===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Selector por ID */
+#main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+  text-align: center;
+}
+
+/* =====================================================
+   4. CONTENEDORES Y LAYOUT PRINCIPAL CON FLEXBOX
+   ===================================================== */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Layout principal con Flexbox */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   5. HEADER - FLEXBOX LAYOUT CON STICKY
+   ===================================================== */
+
+header {
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Pseudoclase hover para header */
+header:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================================================
+   6. NAVEGACIÓN CON FLEXBOX
+   ===================================================== */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav li {
+  flex-shrink: 0;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+nav a:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+/* =====================================================
+   7. MAIN CONTENT - FLEXBOX LAYOUT
+   ===================================================== */
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Selector de clase */
+.section {
+  padding: 3rem 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+/* Pseudoelemento para decoración del título */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+/* =====================================================
+   8. SECCIÓN DE BIENVENIDA - FLEXBOX
+   ===================================================== */
+
+.welcome-section {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+/* =====================================================
+   9. GÉNEROS MUSICALES - CSS GRID
+   ===================================================== */
+
+.genres-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.genre-item {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.genre-item:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Transformación: rotación en hover */
+.rotate-hover:hover {
+  transform: rotate(2deg) scale(1.05);
+}
+
+/* =====================================================
+   10. SECCIÓN DE VIDEO - FLEXBOX
+   ===================================================== */
+
+.video-section {
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  aspect-ratio: 16/9;
+}
+
+/* Transformación: escala en hover */
+.scale-hover:hover {
+  transform: scale(1.02);
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* =====================================================
+   11. ARTISTAS - CSS GRID
+   ===================================================== */
+
+.artists-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.artist-card {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 160px;
+  justify-content: center;
+}
+
+.artist-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--secondary-color);
+}
+
+/* Transformación: slide up */
+.slide-up:hover {
+  transform: translateY(-5px);
+}
+
+.artist-icon {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.artist-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.artist-genre {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* =====================================================
+   12. SECCIÓN INSTAGRAM - FLEXBOX
+   ===================================================== */
+
+.instagram-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.instagram-widget {
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   13. CALL TO ACTION - FLEXBOX
+   ===================================================== */
+
+.cta-section {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.cta-section .section-title {
+  color: var(--white);
+}
+
+.cta-section .section-title::after {
+  background-color: var(--accent-color);
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================================
+   14. FOOTER - FLEXBOX
+   ===================================================== */
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  color: var(--white);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-3px) rotate(5deg);
+}
+
+/* =====================================================
+   15. RESPONSIVE DESIGN CON GRID Y FLEXBOX
+   ===================================================== */
+
+/* Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .genres-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .artists-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #main-title {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    gap: 0.3rem;
+  }
+
+  nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  header .container {
+    gap: 0.5rem;
+  }
+}
+
+/* Móvil (hasta 767px) */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Header stack vertical */
+  header .container {
+    gap: 1rem;
+  }
+
+  /* Navegación vertical */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  nav li {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+  }
+
+  #main-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Grid responsive */
+  .genres-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .artists-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .video-container {
+    max-width: 100%;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  /* Footer responsive */
+  .social-links {
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktop grande (1200px+) */
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 3rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  #main-title {
+    font-size: 2.5rem;
+  }
+
+  .genres-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .artists-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    margin-top: 0;
+  }
+}
+
+/* =====================================================
+   16. LAYOUTS ESPECIALES CON GRID
+   ===================================================== */
+
+/* Grid layout para secciones alternadas */
+@media screen and (min-width: 768px) {
+  .welcome-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+  }
+
+  .video-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+}
+
+/* =====================================================
+   17. ANIMACIONES Y TRANSICIONES ADICIONALES
+   ===================================================== */
+
+/* Animación sutil para elementos que aparecen */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Efecto de pulsación para botones importantes */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+  }
+}
+
+.cta-button {
+  animation: pulse 2s infinite;
+}
+
+/* =====================================================
+   18. MEJORAS DE ACCESIBILIDAD
+   ===================================================== */
+
+/* Focus visible para navegación por teclado */
+a:focus,
+button:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* Mejor contraste para elementos interactivos */
+.genre-item:focus,
+.artist-card:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+}
+
+/* Texto más legible en pantallas pequeñas */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .welcome-section p {
+    font-size: 1rem;
+  }
+}
+
+/*==LOCAL SECTION==*/
+
+.local-container p {
+  text-align: center;
+  position: relative;
+}
+
+/* === VIDEO PROMOCIONAL === */
+.mapa-section {
+  text-align: center;
+  position: relative;
+}
+
+.mapa-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.mapa-container:hover {
+  transform: scale(1.02);
+}
+
+.mapa-container iframe {
+  border-radius: 15px;
+  width: 560px;
+  height: 315px;
+  max-width: 100%;
+}

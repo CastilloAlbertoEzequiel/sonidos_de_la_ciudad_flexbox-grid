@@ -1,0 +1,233 @@
+/* =====================================================
+   SONIDOS DE LA CIUDAD - ENTRADAS
+   CSS Minimalista con Grid y Flexbox
+   ===================================================== */
+
+/* =====================================================
+   1. RESET Y CONFIGURACIÓN BÁSICA
+   ===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================================================
+   2. PALETA DE COLORES MINIMALISTA
+   ===================================================== */
+
+:root {
+  --primary-color: #2c3e50; /* Azul oscuro */
+  --secondary-color: #3498db; /* Azul claro */
+  --accent-color: #e74c3c; /* Rojo elegante */
+  --text-color: #34495e; /* Gris oscuro */
+  --light-gray: #f8f9fa; /* Gris muy claro */
+  --white: #ffffff;
+  --border-color: #dee2e6;
+}
+
+/* =====================================================
+   3. TIPOGRAFÍA
+   ===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+#main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+  text-align: center;
+}
+
+/* =====================================================
+   4. HEADER Y NAVEGACIÓN
+   ===================================================== */
+
+header {
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+/* =====================================================
+   5. MAIN CONTENT - ENTRADAS
+   ===================================================== */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   6. TABLA DE ENTRADAS
+   ===================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background-color: var(--light-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: var(--white);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--light-gray);
+}
+
+tr:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  transition: background-color 0.3s ease;
+}
+
+/* =====================================================
+   7. FOOTER
+   ===================================================== */
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* =====================================================
+   8. RESPONSIVE DESIGN
+   ===================================================== */
+
+/* Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+/* Móvil (hasta 767px) */
+@media screen and (max-width: 767px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+}
